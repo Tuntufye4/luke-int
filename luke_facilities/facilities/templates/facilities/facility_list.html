@@ -1,0 +1,13 @@
+<h1>Facility List</h1>
+<form method="get">
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+</form>
+<ul>
+    {% for facility in facilities %}
+    <li>{{ facility.facility_code }} - {{ facility.facility_name }} - District: {{ facility.district_id }} - Owner: {{ facility.owner_id }} 
+        <a href="{% url 'facility_archive' facility.id %}">Archive</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'facility_create' %}">Add New Facility</a>
