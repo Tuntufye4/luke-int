@@ -7,34 +7,73 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center; 
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
         }
-        table {
-            width: 80%; 
-            border-collapse: collapse;
-            margin: 20px auto; 
-        }
-        th, td {
-            padding: 8px;
-            border: 1px solid #ddd; 
-        }
-        th {
-            background-color: #f2f2f2; 
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2; 
-        }
-        tr:hover {
-            background-color: #ddd; 
+        h1 {
+            color: #007bff;
+            margin-top: 20px;
         }
         .form-container {
             width: 80%;
             margin: 20px auto;
-            text-align: left; 
+            text-align: left;
+        }
+        .form-container form {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container input[type="text"] {
+            width: 70%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
         .form-container button {
-            display: inline-block;
-            vertical-align: middle;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+        .add-facility-link {
+            display: block;
+            margin: 20px auto;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .add-facility-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -70,6 +109,6 @@
             {% endfor %}
         </tbody>
     </table>
-    <a href="{% url 'facility_create' %}">Add New Facility</a>
+    <a href="{% url 'facility_create' %}" class="add-facility-link">Add New Facility</a>
 </body>
 </html>
