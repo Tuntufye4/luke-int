@@ -1,13 +1,75 @@
-<h1>Facility List</h1>
-<form method="get">
-    {{ form.as_p }}
-    <button type="submit">Search</button>
-</form>
-<ul>
-    {% for facility in facilities %}
-    <li>{{ facility.facility_code }} - {{ facility.facility_name }} - District: {{ facility.district_id }} - Owner: {{ facility.owner_id }} 
-        <a href="{% url 'facility_archive' facility.id %}">Archive</a>
-    </li>
-    {% endfor %}
-</ul>
-<a href="{% url 'facility_create' %}">Add New Facility</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facility List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center; 
+        }
+        table {
+            width: 80%; 
+            border-collapse: collapse;
+            margin: 20px auto; 
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd; 
+        }
+        th {
+            background-color: #f2f2f2; 
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; 
+        }
+        tr:hover {
+            background-color: #ddd; 
+        }
+        .form-container {
+            width: 80%;
+            margin: 20px auto;
+            text-align: left; 
+        }
+        .form-container button {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <h1>Facility List</h1>
+    <div class="form-container">
+        <form method="get">
+            {{ form.as_p }}
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Facility Code</th>
+                <th>Facility Name</th>
+                <th>District</th>
+                <th>Owner</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for facility in facilities %}
+            <tr>
+                <td>{{ facility.facility_code }}</td>
+                <td>{{ facility.facility_name }}</td>
+                <td>{{ facility.district_id }}</td>
+                <td>{{ facility.owner_id }}</td>
+                <td>
+                    <a href="{% url 'facility_archive' facility.id %}">Archive</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'facility_create' %}">Add New Facility</a>
+</body>
+</html>
